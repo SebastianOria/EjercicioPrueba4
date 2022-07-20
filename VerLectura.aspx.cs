@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EjercicioPrueba4
 {
-    public partial class SiteMaster : MasterPage
+    public partial class VerLectura : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
