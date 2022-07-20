@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MedidoresDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MedidoresDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'MedidoresDB.dbo.Lecturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Lecturas">
@@ -32,21 +32,22 @@ advertencia 6002: La tabla o vista 'MedidoresDB.dbo.Medidor' no tiene definida n
         <EntityContainer Name="MedidoresDBModelStoreContainer">
           <EntitySet Name="Lecturas" EntityType="Self.Lecturas" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Lecturas].[Id] AS [Id], 
-    [Lecturas].[IdMedidor] AS [IdMedidor], 
-    [Lecturas].[Consumo] AS [Consumo], 
-    [Lecturas].[Fecha] AS [Fecha]
-    FROM [dbo].[Lecturas] AS [Lecturas]</DefiningQuery>
+[Lecturas].[Id] AS [Id], 
+[Lecturas].[IdMedidor] AS [IdMedidor], 
+[Lecturas].[Consumo] AS [Consumo], 
+[Lecturas].[Fecha] AS [Fecha]
+FROM [dbo].[Lecturas] AS [Lecturas]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Medidor" EntityType="Self.Medidor" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Medidor].[Id] AS [Id], 
-    [Medidor].[IdMedidor] AS [IdMedidor], 
-    [Medidor].[Tipo] AS [Tipo]
-    FROM [dbo].[Medidor] AS [Medidor]</DefiningQuery>
+[Medidor].[Id] AS [Id], 
+[Medidor].[IdMedidor] AS [IdMedidor], 
+[Medidor].[Tipo] AS [Tipo]
+FROM [dbo].[Medidor] AS [Medidor]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MedidoresDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -93,9 +94,9 @@ advertencia 6002: La tabla o vista 'MedidoresDB.dbo.Medidor' no tiene definida n
           <EntitySetMapping Name="Medidors">
             <EntityTypeMapping TypeName="MedidoresDBModel.Medidor">
               <MappingFragment StoreEntitySet="Medidor">
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdMedidor" ColumnName="IdMedidor" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -115,7 +116,7 @@ advertencia 6002: La tabla o vista 'MedidoresDB.dbo.Medidor' no tiene definida n
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

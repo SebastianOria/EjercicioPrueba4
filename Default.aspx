@@ -1,41 +1,72 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EjercicioPrueba4._Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EjercicioPrueba4.Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+            
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
+    
+<asp:Content ID="Conten1" ContentPlaceHolderID="Contenido" runat="server">
+    
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+     
+        <div class="col-lg-6 mx-auto">
+            <div class="mensajes">
+                <asp:Label runat="server" ID="mensajeLbl" CssClass="text-success"></asp:Label>
+            </div>
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                 <a href="Default.aspx">Default.aspx</a>
+                    <h3>Agregar Medidores</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="nombreTxt">ID Medidor: </label>
+                        <asp:TextBox ID="nombreTxt" CssClass="form-control" runat="server" onkeypress ="javascript:return solonumeros(event)">
+                        </asp:TextBox> 
+                         
+
+                    </div>      
+                   
+                     <div class="form-group">
+                        <label for="nivelRbl">Nivel</label>
+                        <asp:RadioButtonList runat="server" ID="nivelRbl">
+                            <asp:ListItem Selected="True" Value="1" Text="Agua"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="Luz"></asp:ListItem>
+                            
+                        </asp:RadioButtonList>
+                    </div>
+                        
+                <asp:requiredfieldvalidator id="RequiredFieldValidator1" forecolor="Red" errormessage="Ingresa un Medidor" controltovalidate="nombreTxt" runat="server">
+                </asp:requiredfieldvalidator>
+
+                    <div class="form-group">
+                        <asp:Button runat="server" ID="agregarBtn" Text="Agregar" CssClass="btn btn-primary" OnClick="agregarBtn_Click"/>
+                    </div>
+
+                    <script>
+        function solonumeros(e) {
+ 
+            var key;
+ 
+            if (window.event) // IE
+            {
+                key = e.keyCode;
+            }
+            else if (e.which) // Netscape/Firefox/Opera
+            {
+                key = e.which;
+            }
+ 
+            if (key < 48 || key > 57) {
+                return false;
+            }
+ 
+            return true;
+        }
+ 
+                    </script>
+
+
+                </div>
+            </div>
         </div>
     </div>
 

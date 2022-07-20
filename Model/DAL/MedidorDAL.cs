@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelos.DAL
+namespace Model.DAL
 {
     public class MedidorDAL : IMedidorDAL
     {
         private MedidoresDBEntities medidoresDB = new MedidoresDBEntities();
 
         public List<Medidor> ObtenerMedidores()
-        { 
+        {
             return this.medidoresDB.Medidors.ToList();
         }
         public void AgregarMedidor(Medidor medidor)
@@ -35,6 +35,6 @@ namespace Modelos.DAL
             return query.ToList(); ;
         }
 
-       
+
     }
 }
