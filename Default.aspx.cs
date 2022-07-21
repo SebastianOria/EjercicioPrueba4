@@ -57,10 +57,11 @@ namespace EjercicioPrueba4
                 medidorDAL.AgregarMedidor(medidor);
                 //4. Mostrar mensajae de exito
                 this.mensajeLbl.Text = "Medidor Agregar Exitosamente";
-               
+                Response.Redirect("VerMedidores.aspx");
 
 
-            }
+
+        }
            
 
         }
